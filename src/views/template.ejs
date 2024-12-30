@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <title>soon</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/">home</a>
-            <a href="/auth/login">sign in</a>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/index.css" />
+		<title>soon</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/">home</a>
 
-        </nav>
-    </header>
+				<% if(locals.isLogged) {%>
 
-    <%- include(template) %>
+				<a href="/dashboard">dashboard</a>
+                <a href="/auth/logout">logout</a>
 
-</body>
+				<% } else { %>
+
+				<a href="/auth/login">sign in</a>
+                
+				<% } %>
+			</nav>
+		</header>
+
+		<%- include(template) %>
+	</body>
 </html>
