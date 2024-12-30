@@ -7,6 +7,7 @@ import bcrypt from "bcrypt";
 const SALT = 10;
 
 import pool from "./config/db.js";
+import Auth from "./models/Auth.js";
 
 const app = express();
 
@@ -65,7 +66,8 @@ app.post("/auth/register", async (req ,res) => {
         // si tout s'est bien passé on enregistre le nouvel utilisateur
         // -> requête (SQL) d'insertion
         const INSERT_USER = "INSERT INTO user (alias, password) VALUES (?, ?)";
-        const [response] = await pool.execute(INSERT_USER, [req.body.alias, hash]);
+        // on appelle la méthode static sur la class elle-même en transmettant les données nécessaires (voir fichier /models/Auth.js)
+        const [response] = await Auth.insertUser(INSERT_USER, req.body.alias, hash)
 
         // redirection vers la page de connexion en cas de succès
         if(response.insertId) res.redirect("/auth/login");        
