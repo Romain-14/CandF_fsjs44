@@ -24,15 +24,15 @@ app.use(express.static(path.join(process.cwd(), "public")));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
-    secret: process.env.SECRET_SESSION_KEY,
-    resave: false,
-    saveUninitialized: false,
-    cookie : {
-        maxAge: 864000000,
-        httpOnly: true,
-        secure: false,
-        sameSite: "strict",
-    }
+    secret: process.env.SECRET_SESSION_KEY, // Clé secrète pour signer les sessions
+    resave: false, // Évite de sauvegarder la session si elle n'a pas été modifiée
+    saveUninitialized: false, // N'enregistre pas de session non initialisée (utile pour la conformité RGPD)
+    cookie: {
+        maxAge: 86400000, // Durée de vie : 1 jour (en millisecondes)
+        secure: process.env.NODE_ENV === "production", // En production, exige HTTPS
+        httpOnly: true, // Empêche l'accès au cookie depuis JavaScript (protection XSS)
+        sameSite: "strict", // Renforce la sécurité des cookies (contre CSRF)
+    },
 }));
 
 app.use((req, res, next) => {
