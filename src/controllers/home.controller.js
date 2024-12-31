@@ -1,5 +1,5 @@
 const home_view = (req, res) => {
-	res.render("template", { template: "home" });
+	res.render("app/template", { template: "home" });
 }
 
 export { home_view }

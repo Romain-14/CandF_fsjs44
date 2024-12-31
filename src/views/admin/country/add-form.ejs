@@ -1,0 +1,25 @@
+<main id="add-form">
+
+    <% if (error) { %>
+        <div style="color: red;">
+            <% if (error === "MissingFields") { %>
+                <p>Remplissez tous les champs</p>
+            <% } %>
+        </div>
+    <% } %>
+    <form action="add" method="post" enctype="multipart/form-data">
+        <label for="label">Country :</label>
+        <input type="text" name="label" id="label">
+
+        <label for="url_wiki">url wikipedia :</label>
+        <input type="text" name="url_wiki" id="url_wiki">
+
+        <label for="flag">flag :</label>
+        <input type="text" name="flag" id="flag">
+        
+        <label for="image">image :</label>
+        <input type="file" name="image" id="image">
+
+        <button type="submit">create</button>
+    </form>
+</main>

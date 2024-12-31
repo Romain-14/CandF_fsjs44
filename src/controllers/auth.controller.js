@@ -3,10 +3,10 @@ import bcrypt from "bcrypt";
 const SALT = 10;
 
 const login_view = (req, res) => {
-	res.render("template", { template: "auth/login" });
+	res.render("app/template", { template: "auth/login" });
 };
 const register_view = (req, res) => {
-	res.render("template", { template: "auth/register" });
+	res.render("app/template", { template: "auth/register" });
 };
 
 const logout_action = (req, res) => {
@@ -40,7 +40,7 @@ const create_user_action = async (req, res) => {
 
 const login_user_action = async (req, res) => {
 	const SELECT_USER =
-		"SELECT alias, password, creation_date FROM user WHERE alias = ?";
+		"SELECT alias, password, creation_date, isAdmin FROM user WHERE alias = ?";
 	const [[user]] = await Auth.findUserByAlias(SELECT_USER, req.body.alias);
     
 	if (!user) res.redirect("/auth/register");
@@ -49,11 +49,13 @@ const login_user_action = async (req, res) => {
 		const userInfo = {
 			alias: user.alias,
 			creation_date: user.creation_date,
+            isAdmin: user.isAdmin,
 			isLogged: true,
 		};
 		req.session.userInfo = { ...userInfo };
-
-		res.redirect("/");
+        
+        if(!user.isAdmin) res.redirect("/");
+        if(user.isAdmin) res.redirect(process.env.ADMIN_URL);
 	} else res.redirect("/auth/login");
 };
 

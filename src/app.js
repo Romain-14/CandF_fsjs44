@@ -13,7 +13,7 @@ const PORT = process.env.PORT || process.env.LOCAL_PORT;
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src/views"));
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 app.use(express.static(path.join(process.cwd(), "public")));
 app.use(express.urlencoded({ extended: false }));
@@ -25,7 +25,7 @@ app.use(
 		saveUninitialized: false,
 		cookie: {
 			maxAge: 86400000,
-			secure: process.env.NODE_ENV === "production", // false || true
+			secure: process.env.NODE_ENV === "production",
 			httpOnly: true,
 			sameSite: "strict",
 		},
@@ -51,3 +51,7 @@ app.use((req, res, next) => {
 app.use(router);
 
 app.listen(PORT, () => console.log("running at http://localhost:" + PORT));
+
+
+// ATTENTION en mode DÉVELOPPEMENT UNIQUEMENT !!
+console.log(`http://localhost:${PORT}${process.env.ADMIN_URL}`);

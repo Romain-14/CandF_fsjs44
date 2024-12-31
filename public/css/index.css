@@ -10,3 +10,24 @@ form {
 input {
     margin: 10px 0;
 }
+
+.ctn.logout {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+}
+
+.logout-icon{
+    width: 20px;
+}
+
+table {
+    width: 400px;
+    text-align: center;
+}
+
+table, tr, td, th {
+    border: 1px solid ;
+    border-collapse: collapse;
+}

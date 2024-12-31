@@ -1,0 +1,40 @@
+<main id="countries">
+	<nav>
+		<a href="">list</a>
+		<a href="country/add">add</a>
+	</nav>
+
+	<table>
+        <thead>
+
+            <tr>
+                <th>Nom</th>
+                <th>drapeaux</th>
+                <th>image</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% for(const country of countries) {%>
+                
+                <tr>
+                    <td>
+                        <%= country.label %>
+                    </td>
+                    <td>
+                        <%= country.flag %>
+                    </td>
+                    <td>
+                        <%= country.url %>
+                    </td>
+                    <td>
+                        <a href="">edit</a>
+                        <a href="">delete</a>
+                    </td>
+                </tr>
+                
+                <%}%>
+            </tbody>
+	</table>
+</main>

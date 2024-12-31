@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/index.css" />
+		<title>ADMIN PANEL</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="<%= adminUrl %>">home</a>
+				<a href="<%= adminUrl %>/country">countries</a>
+				<a href="<%= adminUrl %>/recipe">recipe</a>
+			</nav>
+            <div class="ctn logout">
+                <a href="/auth/logout"
+				><img src="/images/power-switch.png" alt="" class="logout-icon"
+                /></a>
+            </div>
+		</header>
+
+		<%- include(template) %>
+	</body>
+</html>
