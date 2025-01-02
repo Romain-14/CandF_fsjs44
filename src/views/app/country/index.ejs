@@ -1,0 +1,33 @@
+<main id="country">
+    <h2>Articles concernant les pays</h2>
+    <form >
+        <label for="search">Recherche d'un pays :</label>
+        <input type="search" name="search" id="search">
+    </form>
+    <div class="countries-list">
+        <% countries.forEach(country => { %>
+        <div class="country-card">
+            <header>
+                <img
+                    src="/images/flag/<%= country.flag %>"
+                    alt="<%= country.label %>"
+                    class="flag"
+                />
+                <h3><%= country.label %></h3>
+            </header>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Doloribus aliquid doloremque omnis vitae soluta? Nostrum
+                perspiciatis in neque similique ducimus animi mollitia nulla
+                sit provident.
+            </p>
+            <div class="ctn-img">
+                <img src="/images/country/<%= country.image_url %>" alt="<%= country.label %>" />
+            </div>
+            
+            <a href="/country/<%= country.id %>">Découvrir</a>
+        </div>
+        <% }); %>
+    </div>
+</main>
+<script src="js/countries-list.js"></script>

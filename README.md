@@ -38,7 +38,7 @@ Votre structure doit être complète selon le modèle MVC (Modèle - Vue - Contr
 
 - Dans le panneau d’administration, ajoutez un formulaire permettant de sauvegarder des données (comme `country` ou `recipe`) en base de données.  
 Les données peuvent inclure des informations comme :
-  - Pour `country` : nom, population, etc.
+  - Pour `country` : nom, url wiki, etc.
   - Pour `recipe` : nom, ingrédients, etc.
 
 🎯 **Objectif**
@@ -62,16 +62,18 @@ Chaque élément de données peut avoir une image associée, visible sur l'inter
 
 ---
 
-## **Étape 4 : À venir...**
+## **Étape 4**
 
 Restez attentifs, cette étape sera ajoutée plus tard ! 😊
 
 Optimisation :
-Ajouter des middlewares réutilisables.
-Validation des données en entrée.
-Gestion avancée des erreurs (catch + middleware global).
-Sécurisation supplémentaire (protection CSRF, etc.).
-Routeur dédié : (auth, admin ...)
+Ajouter un middleware pour protéger les routes de l'utilisateur.
+(s'aider du middleware en place `admin`)
+
+Validation des données en entrée : `express-validator`
+Ajouter des blocs try/catch sur tous bloc d'instruction asynchrone (async/await)
+Structurer le dossier de routes pour avoir des routes dédiés.
+Améliorer l'accessibilité de l'application.
 
 ---
 

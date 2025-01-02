@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/css/index.css" />
-		<title>soon</title>
+		<!-- Encodage et compatibilité -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- SEO -->
+        <meta name="description" content="Explore the best food and cultural experiences from countries around the world. Discover the happiness in every country.">
+        <meta name="keywords" content="food, countries, happiness, cultural experiences, recipes, travel">
+        <meta name="author" content="Romain Fournier - Countries & Food">
+    
+        <!-- Liens externes et CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+        <link rel="manifest" href="/images/site.webmanifest">
+    
+        <title><%= template %> - Countries and Food | find the happiness</title>
 	</head>
 	<body>
 		<header>
+            <h1 class="ctn-logo"><a href="/"><img src="/images/c&f.webp" alt="" class="logo"></a></h1>
+
 			<nav>
-				<a href="/">home</a>
+				<a href="/" title="Aller vers la page d'accueil">home</a>
+				<a href="/country">countries</a>
 
 				<% if(locals.isLogged) {%>
 
@@ -25,5 +45,23 @@
 		</header>
 
 		<%- include(template) %>
+        <footer>
+
+            <aside>
+                <h2>à propos de nous</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus voluptatem nihil a quaerat mollitia. Veritatis, culpa soluta. Laboriosam, vel nobis.</p>
+            </aside>
+            <hr>
+            <aside>
+                
+                <nav>
+                    <a href="#">facedebook</a>
+                    <a href="#">instanul</a>
+                    <a href="#">Y</a>
+                </nav>
+            </aside>
+            <hr>
+            <p>&copy; Romain Fournier - 2024 - Pour la 3W Academy</p>
+        </footer>
 	</body>
 </html>

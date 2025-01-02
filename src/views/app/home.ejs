@@ -1,5 +1,97 @@
 <main id="home">
+	<p>Hello, <%= locals.alias ? locals.alias : "guest" %></p>
+	<section class="presentation">
+		<header>
+			<h2>Voyagez à travers les saveurs du monde</h2>
+			<p>
+				Découvrez des recettes authentiques et les histoires qui les
+				accompagnent.
+			</p>
+			<a href="/recipe" class="cta">Explorer les recettes</a>
+		</header>
+	</section>
 
-    <h1>Hello, <%= locals.alias ? locals.alias : "guest" %></h1>
+	<section class="popular-recipes">
+		<h2>Recettes populaires</h2>
+		<div class="recipe-grid">
+			<% if(recipes.length) { %>
+                <% for(const recipe of recipes) { %>
+			    <div class="recipe-card">
+                    <div class="ctn-img">
+                        <img src="/images/recipe/<%= recipe.images[0] %>" alt="<%= recipe.label %>" />
+                    </div>
+                    <h3><%= recipe.label %></h3>
+                    <a href="/recipe/<%= recipe.id %>">Voir la recette</a>
+                </div>
+			    <% } %>
+            <% } else { %>
+            <p>Pas encore de recette</p>    
+            <% } %>
+		</div>
+	</section>
 
+	<section class="explore-countries">
+		<h2>Voyagez à travers les continents</h2>
+		<div class="country-grid">
+			<% countries.forEach(country => { %>
+			<div class="country-card">
+				<header>
+					<img
+						src="/images/flag/<%= country.flag %>"
+						alt="<%= country.label %>"
+						class="flag"
+					/>
+					<h3><%= country.label %></h3>
+				</header>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					Doloribus aliquid doloremque omnis vitae soluta? Nostrum
+					perspiciatis in neque similique ducimus animi mollitia nulla
+					sit provident.
+				</p>
+                <div class="ctn-img">
+                    <img src="/images/country/<%= country.image_url %>" alt="<%= country.label %>" />
+                </div>
+                
+				<a href="/country/<%= country.id %>">Découvrir</a>
+			</div>
+			<% }); %>
+		</div>
+	</section>
+
+	<section class="latest-articles">
+		<h2>Histoires et traditions</h2>
+		<div class="article-grid">
+			<% for(const article of articles) { %>
+			<article class="article-card">
+				<h2><%= article.title %></h2>
+				<p><%= article.short_content %></p>
+
+				<p>
+					By <%= article.author %> on <%= new
+					Date(article.publish_date).toLocaleDateString() %> at <%=
+					new Date(article.publish_date).toLocaleTimeString() %>
+				</p>
+			</article>
+
+			<% }%>
+		</div>
+	</section>
+
+	<section class="newsletter">
+		<h2>Restez inspiré</h2>
+		<p>
+			Inscrivez-vous à notre newsletter et recevez des recettes exclusives
+			et des conseils de voyage.
+		</p>
+		<form action="/subscribe" method="POST">
+			<input
+				type="email"
+				name="email"
+				placeholder="Votre email"
+				required
+			/>
+			<button type="submit">S'inscrire</button>
+		</form>
+	</section>
 </main>

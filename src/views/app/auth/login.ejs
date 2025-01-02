@@ -1,7 +1,7 @@
 <main id="login">
     <form action="/auth/login" method="post">
         <label for="alias">Alias :</label>
-        <input type="text" name="alias" id="alias">
+        <input type="text" name="alias" id="alias" placeholder="Entrer votre Alias" required>
 
         <label for="password">Password :</label>
         <input type="password" name="password" id="password">
@@ -10,5 +10,5 @@
 
     </form>
 
-    <p>No account yet ? <a href="/auth/register" >Register here</a></p>
+    <p class="create-account-text">No account yet ? <a href="/auth/register" class="cta">Register here</a></p>
 </main>
